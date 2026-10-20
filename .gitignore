@@ -60,11 +60,6 @@ secrets.toml
 # ========================================== #
 # VS Code project settings (keeps workspace local)
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
 
 # Windows/WSL interoperability files (if accessing mounted /mnt/c/ drives)
 Thumbs. db
