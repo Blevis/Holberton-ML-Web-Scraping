@@ -2,7 +2,6 @@
 """8-scroll_and_scrape.py"""
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 
 def scroll_and_scrape(url, scroll_pause=2.0):
@@ -35,10 +34,10 @@ def scroll_and_scrape(url, scroll_pause=2.0):
 
         products = []
         seen = set()
-        for card in driver.find_elements(By.CSS_SELECTOR, "div.thumbnail"):
-            title = card.find_element(By.CSS_SELECTOR, "a.title") \
-                        .get_attribute("title")
-            price = card.find_element(By.CSS_SELECTOR, "h4.price").text
+        for card in driver.find_elements("css selector", "div.thumbnail"):
+            title = card.find_element(
+                "css selector", "a.title").get_attribute("title")
+            price = card.find_element("css selector", "h4.price").text
 
             key = (title, price)
             if key in seen:
@@ -46,9 +45,9 @@ def scroll_and_scrape(url, scroll_pause=2.0):
             seen.add(key)
 
             description = card.find_element(
-                By.CSS_SELECTOR, "p.description").text
+                "css selector", "p.description").text
             rating = len(card.find_elements(
-                By.CSS_SELECTOR, ".ratings .ws-icon-star"))
+                "css selector", ".ratings .ws-icon-star"))
 
             products.append({
                 "title": title,

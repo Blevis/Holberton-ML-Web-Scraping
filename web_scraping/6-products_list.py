@@ -2,7 +2,6 @@
 """6-products_list.py"""
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 
 
 def scrape_products(url):
@@ -22,14 +21,14 @@ def scrape_products(url):
         time.sleep(1)
 
         products = []
-        for card in driver.find_elements(By.CSS_SELECTOR, "div.thumbnail"):
-            title = card.find_element(By.CSS_SELECTOR, "a.title") \
-                        .get_attribute("title")
-            price = card.find_element(By.CSS_SELECTOR, "h4.price").text
+        for card in driver.find_elements("css selector", "div.thumbnail"):
+            title = card.find_element(
+                "css selector", "a.title").get_attribute("title")
+            price = card.find_element("css selector", "h4.price").text
             description = card.find_element(
-                By.CSS_SELECTOR, "p.description").text
+                "css selector", "p.description").text
             rating = card.find_element(
-                By.CSS_SELECTOR, ".ratings p[data-rating]"
+                "css selector", ".ratings p[data-rating]"
             ).get_attribute("data-rating")
 
             products.append({
@@ -44,4 +43,5 @@ def scrape_products(url):
         driver.quit()
 
 
+# Alias: 6-main.py imports `scrape_products_list` from this module
 scrape_products_list = scrape_products
