@@ -26,12 +26,21 @@ def scroll_and_scrape(url, scroll_pause=2.0):
         while True:
             driver.execute_script(
                 "window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(scroll_pause)
-            new_height = driver.execute_script(
-                "return document.body.scrollHeight")
-            if new_height <= last_height:
+
+            # wait up to scroll_pause for the page to grow
+            grew = False
+            deadline = time.time() + scroll_pause
+            while time.time() < deadline:
+                time.sleep(0.1)
+                new_height = driver.execute_script(
+                    "return document.body.scrollHeight")
+                if new_height > last_height:
+                    last_height = new_height
+                    grew = True
+                    break
+
+            if not grew:
                 break
-            last_height = new_height
 
         products = []
         seen = set()
