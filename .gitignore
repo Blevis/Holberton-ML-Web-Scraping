@@ -1,0 +1,73 @@
+# ========================================== #
+# Python & Virtual Environments              #
+# ========================================== #
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments (Local environment setups)
+.venv/
+venv/
+ENV/
+env/
+
+# Packaging, distributions, and caching
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ========================================== #
+# Web Scraping Specifics                     #
+# ========================================== #
+# Harvested data files (Prevents pushing massive scraping outputs to GitHub)
+*.csv
+*.json
+*.jsonl
+*.xml
+*.xlsx
+*.sqlite
+*.db
+
+# Downloaded assets (Images, PDFs, HTML dumps from target sites)
+downloads/
+images/
+data_dumps/
+*.html
+*.pdf
+
+# Playwright / Selenium driver binaries and logs
+.browser-downloads/
+geckodriver.log
+chromedriver.log
+ghostdriver.log
+
+# ========================================== #
+# Environment Variables & Secrets (CRITICAL)  #
+# ========================================== #
+# Stores proxy credentials, database URLs, or API keys
+.env
+.env.local
+.env.*
+secrets.toml
+
+# ========================================== #
+# VS Code & WSL Environment                  #
+# ========================================== #
+# VS Code project settings (keeps workspace local)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Windows/WSL interoperability files (if accessing mounted /mnt/c/ drives)
+Thumbs. db
+desktop.ini
+$RECYCLE.BIN/
+.DS_Store
