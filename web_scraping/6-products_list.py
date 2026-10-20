@@ -43,5 +43,4 @@ def scrape_products(url):
         driver.quit()
 
 
-# Alias: 6-main.py imports `scrape_products_list` from this module
 scrape_products_list = scrape_products
